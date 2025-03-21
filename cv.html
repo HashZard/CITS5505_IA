@@ -1,103 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>cits5505 individual assignment - CV</title>
+    <meta charset="UTF-8">
+    <title>cits5505 individual assignment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-  >
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-  <!-- 自定义CSS -->
-  <link rel="stylesheet" href="style.css">
+    <!-- Custom Style -->
+    <style>
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* 切换动画效果 - 卡片翻转或旋转 */
+        .profile-pic.animate {
+            animation: switchPhoto 0.6s ease-in-out;
+        }
+
+        @keyframes switchPhoto {
+            0% {
+                transform: scale(1) rotateY(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(0.8) rotateY(90deg);
+                opacity: 0.2;
+            }
+            100% {
+                transform: scale(1) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        <!-- /* skill */
+        -->
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: #212529;
+            color: #fff;
+            padding: 10px 0;
+            position: relative;
+            border-radius: 5px;
+        }
+
+
+        .marquee-track {
+            display: inline-block;
+            animation: scroll-left 20s linear infinite;
+        }
+
+        .marquee-track span {
+            display: inline-block;
+            /* padding-right: 10px;分隔两段内容 */
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .skill-icon {
+            transition: transform 0.1s ease-in-out;
+        }
+
+        .skill-icon:hover {
+            transform: scale(1.5);
+        }
+
+        <!-- /* timeline */
+        .timeline-experience {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .timeline-item-exp {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            cursor: pointer;
+        }
+
+        .timeline-item-exp .logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item-exp .content {
+            flex: 1;
+        }
+
+        .timeline-experience:hover .timeline-item-exp {
+            opacity: 0.4;
+            transform: scale(0.95);
+        }
+
+        .timeline-item-exp:hover {
+            opacity: 1 !important;
+            transform: scale(1.02) !important;
+            background: #e9ecef;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1;
+        }
+
+        .exp-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-intro {
+            font-size: 0.82rem;
+            color: #6c757d; /* Bootstrap text-secondary */
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .exp-detail {
+            font-size: 0.95rem;
+            color: #212529;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+    </style>
 </head>
 <body>
-  <div id="header"></div>
 
-  <main class="container bg-white p-4 rounded shadow">
-    <section id="cv-section">
-      <div class="row mb-4">
-        <div class="col-md-8">
-          <h2>Personal Information</h2>
-          <p><strong>Name:</strong> John Doe</p>
-          <p><strong>Email:</strong> placeholder@example.com</p>
-          <p><strong>Phone:</strong> (+00) 0000-0000</p>
+<div id="header"></div>
+<main class="container mt-4">
+
+    <!-- 卡片1：关于我 -->
+    <div class="card mb-4 p-4">
+        <div class="row align-items-center">
+            <div class="col-md-3 text-center">
+                <!-- 简历 About 卡片内头像位置 -->
+                <img id="profile-pic" src="static/profile/profile1.jpg" class="profile-pic mb-3" alt="Profile Picture"
+                     style="cursor: pointer;" title="Click to switch photo">
+            </div>
+            <div class="col-md-9">
+                <h3>About Me</h3>
+                <p>
+                    Experienced Software Developer with 4 years of hands-on experience in large-scale, high-concurrency
+                    systems, previously worked at Alibaba. Specialized in Java technologies, particularly the Spring
+                    Framework,
+                    and well-versed in backend architecture for financial trading platforms and marketing systems
+                    serving
+                    hundreds of millions of users. Strong programming skill across multiple languages (Java, Python, C,
+                    front-end). Currently pursuing a Master of IT at UWA, also serving as a unit facilitator.
+                    Independently
+                    developing a full-stack web platform to support Chinese international students in adapting to life
+                    in Australia
+                    through information sharing and peer assistance.
+                </p>
+                <div class="row text-start">
+                    <div class="col-md-4 mb-2">
+                        <i class="fas fa-envelope me-2"></i> info.xd.ovo@gmail.com
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <i class="fas fa-phone me-2"></i> (+61) 481 912 318
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <i class="fas fa-map-marker-alt me-2"></i> Perth, WA, Australia
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="col-md-4 text-center">
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Profile Photo"
-            class="profile-pic img-thumbnail mt-2"
-          >
+    </div>
+
+    <!-- 卡片2：技能 -->
+    <div class="card mb-4 p-4">
+        <h3>Skills</h3>
+        <div class="marquee-container my-4">
+            <div class="marquee-track">
+                <span> • Java • Spring • SpringBoot • MyBatis • Kafka • Redis • RPC • MySQL • SQLite • Shell • Python • C
+                    • HTML • CSS • JavaScript • Git • Docker • Alibaba Cloud </span>
+                <span> • Java • Spring • SpringBoot • MyBatis • Kafka • Redis • RPC • MySQL • SQLite • Shell • Python • C
+                    • HTML • CSS • JavaScript • Git • Docker • Alibaba Cloud </span>
+            </div>
         </div>
-      </div>
+        <div class="row text-center">
 
-      <div class="mb-4">
-        <h2>Biography</h2>
-        <p>
-          (此处可放置约500字的个人介绍，展示你的技术经验、项目经验、兴趣爱好等。)
-        </p>
-      </div>
+            <div class="col-4 col-md-2 mb-4">
+                <i class="fab fa-java fa-3x mb-2 skill-icon"></i><br>Java
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <img src="static/log/spring.svg" alt="Spring" width="40" class="mb-2 skill-icon"><br>Spring
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <img src=" static/log/springboot.svg" alt="SpringBoot" width="40" class="mb-2 skill-icon"><br>SpringBoot
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <img src=" static/log/mybatis.svg" alt="MyBatis" width="40" class="mb-2 skill-icon"><br>MyBatis
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <img src=" static/log/kafka.svg" alt="Kafka" width="40" class="mb-2 skill-icon"><br>Kafka
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <img src=" static/log/redis.svg" alt="Redis" width="40" class="mb-2 skill-icon"><br>Redis
+            </div>
 
-      <div class="mb-4">
-        <h2>Skills & Experience</h2>
+            <div class="col-4 col-md-2 mb-4">
+                <img src=" static/log/rpc.svg" alt="RPC" width="40" class="mb-2 skill-icon"><br>RPC
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <i class="fas fa-database fa-3x mb-2 skill-icon"></i><br>MySQL
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <img src=" static/log/sqlite.svg" alt="SQLite" width="40" class="mb-2 skill-icon"><br>SQLite
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <i class="fas fa-terminal fa-3x mb-2 skill-icon"></i><br>Shell
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <i class="fab fa-python fa-3x mb-2 skill-icon"></i><br>Python
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <img src=" static/log/c.svg" alt="C Language" width="40" class="mb-2 skill-icon"><br>C
+            </div>
+
+            <div class="col-4 col-md-2 mb-4">
+                <i class="fab fa-html5 fa-3x mb-2 skill-icon"></i><br>HTML
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <i class="fab fa-css3-alt fa-3x mb-2 skill-icon"></i><br>CSS
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <i class="fab fa-js fa-3x mb-2 skill-icon"></i><br>JavaScript
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <i class="fab fa-git-alt fa-3x mb-2 skill-icon"></i><br>Git
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <i class="fab fa-docker fa-3x mb-2 skill-icon"></i><br>Docker
+            </div>
+            <div class="col-4 col-md-2 mb-4">
+                <img src=" static/log/alibabacloud.svg" alt="Alibaba Cloud" width="40" class="mb-2 skill-icon"><br>Alibaba
+                Cloud
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 卡片3：经验（时间轴形式） -->
+    <div class="card mb-4 p-4">
+        <h3>Experience</h3>
+        <div class="timeline-experience">
+
+            <div class="timeline-item-exp">
+                <div class="logo">
+                    <img src="static/log/bupt.png" alt="BUPT Logo">
+                </div>
+                <div class="content">
+                    <h5 class="exp-title">Beijing University of Posts and Telecommunications</h5>
+
+                    <p class="exp-intro">
+                        Beijing University of Posts and Telecommunications (BUPT) is one of China's most prestigious
+                        universities,
+                        renowned as the "Cradle of China's Information Technology Talents". With a strong emphasis on
+                        engineering
+                        and computer science, BUPT is particularly recognized for its excellence in telecommunications,
+                        network engineering, and information systems.
+                    </p>
+                    <p class="exp-detail">
+                        I was admitted to BUPT with a top 1% entrance score in my province’s National College Entrance
+                        Examination, majoring in Electronic Information Science and Technology. Driven by personal
+                        passion, I began
+                        self-learning programming during my freshman year. Throughout my studies, I consistently ranked
+                        among the top
+                        20% academically and received annual scholarships in recognition of my performance.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="timeline-item-exp">
+                <div class="logo">
+                    <img src="static/log/cmcc.png" alt="China Mobile Logo">
+                </div>
+                <div class="content">
+                    <h5 class="exp-title">China Mobile</h5>
+                    <p class="exp-intro">
+                        China Mobile is the world’s largest telecommunications service provider by
+                        network scale and user base, renowned for its cutting-edge development in 5G, cloud computing,
+                        and digital infrastructure. As a leader in China's digital transformation, China Mobile plays a
+                        pivotal role in national communication infrastructure.
+                    </p>
+                    <p class="exp-detail">
+                        My responsibilities focused on the development and integration of To-B mobile recharge service
+                        APIs, along with the design and implementation of internal management dashboards. The technology
+                        stack primarily involved Java and HTML.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="timeline-item-exp">
+                <div class="logo">
+                    <img src="static/log/alibaba.png" alt="Alibaba Logo">
+                </div>
+                <div class="content">
+                    <h5 class="exp-title">Alibaba</h5>
+                    <p class="exp-intro">
+                        Alibaba Group is a global technology giant and one of the world’s leading companies in
+                        e-commerce, cloud computing, and digital finance. With its high-concurrency systems, data-driven
+                        architecture, and agile development culture, Alibaba is at the forefront of technological
+                        innovation and large-scale platform engineering.
+                    </p>
+                    <p class="exp-detail">
+                        I was actively involved in the development and maintenance of Alibaba’s fund distribution
+                        platform and marketing systems. My responsibilities spanned the entire software development
+                        lifecycle — from requirement analysis and system design to backend implementation, testing,
+                        maintenance, and user behavior data analysis, primarily using Java-based technologies.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item-exp">
+                <div class="logo">
+                    <img src="static/log/uwa.png" alt="UWA Logo">
+                </div>
+                <div class="content">
+                    <h5 class="exp-title">University of Western Australia</h5>
+                    <p class="exp-intro">
+                        The University of Western Australia (UWA) is a Group of Eight (Go8) research-intensive
+                        university, consistently ranked among the top 100 universities globally. UWA is known for its
+                        excellence in innovation, interdisciplinary learning, and strong industry engagement in
+                        engineering and information technology.
+                    </p>
+                    <p class="exp-detail">
+                        I am currently pursuing a MIT at UWA, where I have significantly expanded my technical skill
+                        set. This journey has transformed me from a specialized backend engineer into a full-stack
+                        developer and independent creator. During my time at UWA, I have served as a Unit Facilitator,
+                        supporting academic units and enhancing my leadership and collaboration skills. I am now focused
+                        on developing my own platform project aimed at helping Chinese international students better
+                        integrate into life in Australia through information sharing and community support.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 卡片4：References -->
+    <div class="card mb-4 p-4">
+        <h3>References & Sources</h3>
         <ul>
-          <li>Skilled in HTML, CSS, and JavaScript</li>
-          <li>Familiar with responsive design and cross-browser compatibility</li>
-          <li>Experience with AJAX and RESTful APIs</li>
-          <li>Comfortable with Git version control</li>
-          <li>Placeholder for additional skills...</li>
+            <li>UWA Referencing Guide: <a href="https://guides.library.uwa.edu.au/referencinguwa" target="_blank">https://guides.library.uwa.edu.au/referencinguwa</a>
+            </li>
+            <li>Public APIs: <a href="https://github.com/public-apis/public-apis" target="_blank">https://github.com/public-apis/public-apis</a>
+            </li>
+            <li>AI Assistance: ChatGPT used for structure & styling ideas.</li>
         </ul>
-      </div>
+    </div>
 
-      <div class="mb-4">
-        <h2>Education</h2>
-        <ul>
-          <li>Placeholder University, Bachelor of Science in Computer Science</li>
-          <li>Placeholder High School</li>
-        </ul>
-      </div>
+</main>
 
-      <div class="mb-4">
-        <h2>References</h2>
-        <p>Available upon request, please contact me via email for details.</p>
-      </div>
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-3 mt-4">
+    <p class="mb-0">&copy; 2025 Xudong Zhao (24151881) - CV Page</p>
+</footer>
 
-      <div id="references-section">
-        <h2>References / Sources</h2>
-        <ol>
-          <li>
-            UWA Referencing Guide:
-            <a href="https://guides.library.uwa.edu.au/referencinguwa" target="_blank">
-              https://guides.library.uwa.edu.au/referencinguwa
-            </a>
-          </li>
-          <li>
-            Public APIs:
-            <a href="https://github.com/public-apis/public-apis" target="_blank">
-              https://github.com/public-apis/public-apis
-            </a>
-          </li>
-          <li>
-            AI Assistance: ChatGPT for brainstorming & code examples.
-          </li>
-        </ol>
-      </div>
-    </section>
-  </main>
+<!-- Bootstrap + jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <footer class="bg-dark text-white text-center p-2 mt-4">
-    <p class="mb-0">&copy; 2025 cits5505 individual assignment - Xudong Zhao(24151881)</p>
-  </footer>
+<!-- 动态技能条动画 -->
+<script>
+    $(document).ready(function () {
+        $('.progress-bar').each(function () {
+            let percent = $(this).text().trim();
+            $(this).animate({width: percent}, 1500);
+        });
+    });
 
-  <!-- Bootstrap JS -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-  </script>
+    $(document).ready(function () {
+        const photoList = [
+            'static/profile/profile1.jpg',
+            'static/profile/profile2.jpg',
+            'static/profile/profile3.jpg',
+            'static/profile/profile4.jpg'
+        ];
 
-  <!-- 自定义JS -->
-  <script src="script.js"></script>
+        let currentPhoto = 0;
+
+        $('#profile-pic').click(function () {
+            // 添加动画类
+            $(this).addClass('animate');
+
+            // 切换图片（延迟执行）
+            setTimeout(() => {
+                currentPhoto = (currentPhoto + 1) % photoList.length;
+                $(this).attr('src', photoList[currentPhoto]);
+            }, 300); // 切换图像在动画中间发生
+
+            // 移除动画类（完成后）
+            setTimeout(() => {
+                $(this).removeClass('animate');
+            }, 600); // 动画总时长
+        });
+
+        // ✅ 每隔 3 秒自动点击头像，循环切换
+        setInterval(function () {
+            $('#profile-pic').click();
+        }, 3000);
+    });
+
+</script>
+<!-- 自定义JS文件 -->
+<script src="./js/script.js"></script>
 </body>
 </html>
