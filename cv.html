@@ -6,162 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
     <!-- Custom Style -->
-    <style>
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid #fff;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        /* 切换动画效果 - 卡片翻转或旋转 */
-        .profile-pic.animate {
-            animation: switchPhoto 0.6s ease-in-out;
-        }
-
-        @keyframes switchPhoto {
-            0% {
-                transform: scale(1) rotateY(0deg);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(0.8) rotateY(90deg);
-                opacity: 0.2;
-            }
-            100% {
-                transform: scale(1) rotateY(0deg);
-                opacity: 1;
-            }
-        }
-
-        .profile-pic:hover {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        <!-- /* skill */
-        -->
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-            background-color: #212529;
-            color: #fff;
-            padding: 10px 0;
-            position: relative;
-            border-radius: 5px;
-        }
-
-
-        .marquee-track {
-            display: inline-block;
-            animation: scroll-left 20s linear infinite;
-        }
-
-        .marquee-track span {
-            display: inline-block;
-            /* padding-right: 10px;分隔两段内容 */
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .skill-icon {
-            transition: transform 0.1s ease-in-out;
-        }
-
-        .skill-icon:hover {
-            transform: scale(1.5);
-        }
-
-        <!-- /* timeline */
-        .timeline-experience {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .timeline-item-exp {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-            cursor: pointer;
-        }
-
-        .timeline-item-exp .logo img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .timeline-item-exp .content {
-            flex: 1;
-        }
-
-        .timeline-experience:hover .timeline-item-exp {
-            opacity: 0.4;
-            transform: scale(0.95);
-        }
-
-        .timeline-item-exp:hover {
-            opacity: 1 !important;
-            transform: scale(1.02) !important;
-            background: #e9ecef;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 1;
-        }
-
-        .exp-title {
-            font-weight: 700;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .exp-intro {
-            font-size: 0.82rem;
-            color: #6c757d; /* Bootstrap text-secondary */
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-
-        .exp-detail {
-            font-size: 0.95rem;
-            color: #212529;
-            margin-bottom: 0;
-            line-height: 1.6;
-        }
-
-    </style>
+    <link rel="stylesheet" href="./css/cv.css">
 </head>
 <body>
 
 <div id="header"></div>
 <main class="container mt-4">
 
-    <!-- 卡片1：关于我 -->
+    <!-- Card 1：About Me -->
     <div class="card mb-4 p-4">
         <div class="row align-items-center">
             <div class="col-md-3 text-center">
@@ -194,13 +50,19 @@
                     <div class="col-md-4 mb-2">
                         <i class="fas fa-map-marker-alt me-2"></i> Perth, WA, Australia
                     </div>
+                    <a href="https://www.linkedin.com/in/xudong-zard" target="_blank" class="col-md-4 mb-2">
+                        <i class="fab fa-linkedin me-2"></i> www.linkedin.com/in/xudong-zard
+                    </a>
+                    <a href="https://www.github.com/HashZard" target="_blank" class="col-md-4 mb-2">
+                        <i class="fab fa-github me-2"></i> www.github.com/HashZard
+                    </a>
                 </div>
 
             </div>
         </div>
     </div>
 
-    <!-- 卡片2：技能 -->
+    <!-- Card 2：Skills -->
     <div class="card mb-4 p-4">
         <h3>Skills</h3>
         <div class="marquee-container my-4">
@@ -274,17 +136,17 @@
     </div>
 
 
-    <!-- 卡片3：经验（时间轴形式） -->
+    <!-- Card3：Experience（timeline style） -->
     <div class="card mb-4 p-4">
         <h3>Experience</h3>
         <div class="timeline-experience">
-
             <div class="timeline-item-exp">
                 <div class="logo">
                     <img src="static/log/bupt.png" alt="BUPT Logo">
                 </div>
                 <div class="content">
-                    <h5 class="exp-title">Beijing University of Posts and Telecommunications</h5>
+                    <h5 class="exp-title"><span class="exp-year">2015</span>Beijing University of Posts and
+                        Telecommunications</h5>
 
                     <p class="exp-intro">
                         Beijing University of Posts and Telecommunications (BUPT) is one of China's most prestigious
@@ -311,7 +173,7 @@
                     <img src="static/log/cmcc.png" alt="China Mobile Logo">
                 </div>
                 <div class="content">
-                    <h5 class="exp-title">China Mobile</h5>
+                    <h5 class="exp-title"><span class="exp-year">2019</span>China Mobile</h5>
                     <p class="exp-intro">
                         China Mobile is the world’s largest telecommunications service provider by
                         network scale and user base, renowned for its cutting-edge development in 5G, cloud computing,
@@ -332,7 +194,7 @@
                     <img src="static/log/alibaba.png" alt="Alibaba Logo">
                 </div>
                 <div class="content">
-                    <h5 class="exp-title">Alibaba</h5>
+                    <h5 class="exp-title"><span class="exp-year">2021</span>Alibaba</h5>
                     <p class="exp-intro">
                         Alibaba Group is a global technology giant and one of the world’s leading companies in
                         e-commerce, cloud computing, and digital finance. With its high-concurrency systems, data-driven
@@ -353,7 +215,7 @@
                     <img src="static/log/uwa.png" alt="UWA Logo">
                 </div>
                 <div class="content">
-                    <h5 class="exp-title">University of Western Australia</h5>
+                    <h5 class="exp-title"><span class="exp-year">2023</span>University of Western Australia</h5>
                     <p class="exp-intro">
                         The University of Western Australia (UWA) is a Group of Eight (Go8) research-intensive
                         university, consistently ranked among the top 100 universities globally. UWA is known for its
@@ -375,38 +237,35 @@
     </div>
 
 
-    <!-- 卡片4：References -->
+    <!-- Card 4：References -->
     <div class="card mb-4 p-4">
-        <h3>References & Sources</h3>
+        <h3 class="exp-title">References & Sources (APA style)</h3>
         <ul>
-            <li>UWA Referencing Guide: <a href="https://guides.library.uwa.edu.au/referencinguwa" target="_blank">https://guides.library.uwa.edu.au/referencinguwa</a>
+            <li>Bootstrap. (n.d.). <em>Bootstrap 5 documentation</em>. https://getbootstrap.com</li>
+            <li>Font Awesome. (n.d.). <em>Font Awesome Icons</em>. https://fontawesome.com</li>
+            <li>OpenAI. (2025). <em>ChatGPT (Mar 14 version)</em> [Large language model]. https://chat.openai.com</li>
+            <li>W3Schools. (n.d.). <em>HTML, CSS, and JavaScript tutorials</em>. https://www.w3schools.com</li>
+            <li>GitHub contributors. (n.d.). <em>Public APIs list</em>. https://github.com/public-apis/public-apis</li>
+            <li>Daggitt, M., & Alvi, M. (2025). <em>Lecture slides for CITS5505: Agile Web Development</em>. University
+                of
+                Western Australia.
             </li>
-            <li>Public APIs: <a href="https://github.com/public-apis/public-apis" target="_blank">https://github.com/public-apis/public-apis</a>
-            </li>
-            <li>AI Assistance: ChatGPT used for structure & styling ideas.</li>
         </ul>
     </div>
 
 </main>
 
 <!-- Footer -->
-<footer class="bg-dark text-white text-center p-3 mt-4">
-    <p class="mb-0">&copy; 2025 Xudong Zhao (24151881) - CV Page</p>
-</footer>
+<div id="footer"></div>
 
 <!-- Bootstrap + jQuery -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Custom JS file -->
+<script src="./js/navigate.js"></script>
+<script src="./js/index.js"></script>
 
-<!-- 动态技能条动画 -->
 <script>
-    $(document).ready(function () {
-        $('.progress-bar').each(function () {
-            let percent = $(this).text().trim();
-            $(this).animate({width: percent}, 1500);
-        });
-    });
-
     $(document).ready(function () {
         const photoList = [
             'static/profile/profile1.jpg',
@@ -418,7 +277,6 @@
         let currentPhoto = 0;
 
         $('#profile-pic').click(function () {
-            // 添加动画类
             $(this).addClass('animate');
 
             // 切换图片（延迟执行）
@@ -433,14 +291,11 @@
             }, 600); // 动画总时长
         });
 
-        // ✅ 每隔 3 秒自动点击头像，循环切换
+        // 每隔 3 秒自动点击头像，循环切换
         setInterval(function () {
             $('#profile-pic').click();
         }, 3000);
     });
-
 </script>
-<!-- 自定义JS文件 -->
-<script src="./js/script.js"></script>
 </body>
 </html>
