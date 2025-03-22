@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Custom Style -->
     <link rel="stylesheet" href="./css/cv.css">
+    <link rel="stylesheet" href="./css/weather.css">
 </head>
 <body>
 
@@ -253,6 +254,28 @@
         </ul>
     </div>
 
+    <!-- Card 5：Weather Ajax -->
+    <div class="card mb-4 p-4 futuristic-weather">
+        <h3 class="mb-4">🌤 Today's Weather (Perth)</h3>
+        <div class="row text-center" id="weather-modules">
+            <div class="col-md-4 weather-box">
+                <div class="weather-icon"><i class="fas fa-thermometer-half"></i></div>
+                <div class="weather-title">Temperature</div>
+                <div class="weather-value" id="weather-temp">-- °C</div>
+            </div>
+            <div class="col-md-4 weather-box">
+                <div class="weather-icon"><i class="fas fa-wind"></i></div>
+                <div class="weather-title">Wind Speed</div>
+                <div class="weather-value" id="weather-wind">-- km/h</div>
+            </div>
+            <div class="col-md-4 weather-box">
+                <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                <div class="weather-title">UV Index</div>
+                <div class="weather-value" id="weather-uv">--</div>
+            </div>
+        </div>
+    </div>
+
 </main>
 
 <!-- Footer -->
@@ -264,6 +287,7 @@
 <!-- Custom JS file -->
 <script src="./js/navigate.js"></script>
 <script src="./js/index.js"></script>
+<script src="./js/weather.js"></script>
 
 <script>
     $(document).ready(function () {
