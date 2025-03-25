@@ -12,6 +12,10 @@
 <body>
 <div id="header"></div>
 
+<div id="summary-box">
+    Checked: <span id="checked-count">0</span> / <span id="total-count">15</span>
+</div>
+
 <main class="container bg-white p-4 rounded shadow">
     <section id="best-practices-section">
         <h2 class="mb-3">Web Development Best Practices</h2>
@@ -164,7 +168,7 @@
         </div>
     </section>
 
-    <!-- 提交按钮：点击后跳转到 results.html -->
+    <!-- submission-section, jump to results.html after clicking submit button -->
     <div id="submission-section" class="text-center mt-4">
         <button id="resetBtn" class="btn btn-outline-danger">Reset</button>
         <button id="submitBtn" class="btn btn-primary">Submit</button>
@@ -175,9 +179,9 @@
 <!-- Footer -->
 <div id="footer"></div>
 
-<!-- Bootstrap JS Bundle (含Popper) -->
+<!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<!-- 自定义JS文件 -->
+<!-- Custom JS File -->
 <script src="./js/navigate.js"></script>
 <script src="./js/index.js"></script>
 </body>

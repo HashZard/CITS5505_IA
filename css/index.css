@@ -9,7 +9,6 @@ body {
     line-height: 1.5;
 }
 
-/* 移除Bootstrap card组件多余的margin并做轻微自定义 */
 .practice-item {
     margin: 0 !important;
     border: 1px solid #ddd !important;
@@ -19,6 +18,18 @@ body {
 .practice-item .form-check-input {
     transform: scale(1.2);
     margin-right: 0.5rem;
+}
+
+#summary-box {
+    position: fixed;
+    bottom: 50%;
+    right: 0;
+    background-color: black;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-weight: bold;
+    z-index: 9999;
 }
 
 
