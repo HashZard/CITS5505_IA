@@ -240,7 +240,7 @@
 
     <!-- Card 4：References -->
     <div class="card mb-4 p-4">
-        <h3 class="exp-title">References & Sources (APA style)</h3>
+        <h3 class="exp-title">References (APA style)</h3>
         <ul>
             <li>Bootstrap. (n.d.). <em>Bootstrap 5 documentation</em>. https://getbootstrap.com</li>
             <li>Font Awesome. (n.d.). <em>Font Awesome Icons</em>. https://fontawesome.com</li>
@@ -286,7 +286,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Custom JS file -->
 <script src="./js/navigate.js"></script>
-<script src="./js/index.js"></script>
 <script src="./js/weather.js"></script>
 
 <script>
@@ -303,19 +302,18 @@
         $('#profile-pic').click(function () {
             $(this).addClass('animate');
 
-            // 切换图片（延迟执行）
+            // Change photo automatically
             setTimeout(() => {
                 currentPhoto = (currentPhoto + 1) % photoList.length;
                 $(this).attr('src', photoList[currentPhoto]);
-            }, 300); // 切换图像在动画中间发生
+            }, 300);
 
-            // 移除动画类（完成后）
             setTimeout(() => {
                 $(this).removeClass('animate');
-            }, 600); // 动画总时长
+            }, 600);
         });
 
-        // 每隔 3 秒自动点击头像，循环切换
+        // interval to change photo every 3 seconds
         setInterval(function () {
             $('#profile-pic').click();
         }, 3000);

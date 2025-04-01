@@ -41,6 +41,7 @@ function displaySummary(selected, total, percentage) {
     if (percentageDisplay) {
         percentageDisplay.textContent = `This is ${percentage}% of the total best practices.`;
     }
+
 }
 
 // draw Canvas Pie Chart
@@ -54,26 +55,43 @@ function drawPieChart(canvas, selected, total) {
     const centerX = width / 2;
     const centerY = height / 2;
 
-    ctx.clearRect(0, 0, width, height);
-
     const selectedRatio = selected / total;
-    const selectedAngle = selectedRatio * 2 * Math.PI;
+    const endAngle = selectedRatio * 2 * Math.PI;
 
-    // Green part (completed)
-    ctx.beginPath();
-    ctx.moveTo(centerX, centerY);
-    ctx.arc(centerX, centerY, radius, 0, selectedAngle);
-    ctx.fillStyle = "#4CAF50";
-    ctx.fill();
+    let currentAngle = 0;
+    const step = 0.02; // speed of animation
 
-    // Gray part (remaining)
-    if (selected < total) {
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Green part
         ctx.beginPath();
         ctx.moveTo(centerX, centerY);
-        ctx.arc(centerX, centerY, radius, selectedAngle, 2 * Math.PI);
+        ctx.arc(centerX, centerY, radius, 0, currentAngle);
+        ctx.fillStyle = "#4CAF50";
+        ctx.fill();
+
+        // Gray part (remaining)
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, currentAngle, 2 * Math.PI);
         ctx.fillStyle = "#ccc";
         ctx.fill();
+
+        if (currentAngle < endAngle) {
+            currentAngle += step;
+            requestAnimationFrame(animate);
+        } else {
+            // Draw the full green circle
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.arc(centerX, centerY, radius, 0, endAngle);
+            ctx.fillStyle = "#4CAF50";
+            ctx.fill();
+        }
     }
+
+    animate();
 }
 
 // Load random animal image
